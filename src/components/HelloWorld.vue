@@ -43,9 +43,8 @@ export default class HelloWorld extends Vue {
   private msg: string = 'None occured yet.';
 
   private async apiPublic() {
-    // let res = await axios.get('http://localhost:8000/public')
-    // this.msg = res.data
-    this.msg = 'apiPublic called';
+    axios.get('http://localhost:8000/public')
+         .then( (res) => { this.msg = res.data; } );
   }
 
   private async apiPrivate() {
