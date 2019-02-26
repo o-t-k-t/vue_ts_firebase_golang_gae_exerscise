@@ -43,7 +43,7 @@ export default class HelloWorld extends Vue {
   private msg: string = 'None occured yet.';
 
   private async apiPublic() {
-    axios.get('http://localhost:8000/public')
+    axios.get('https://vue-go-exercise-232907.appspot.com/public')
          .then( (res) => { this.msg = res.data; } );
   }
 
