@@ -14,6 +14,8 @@
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-e2e-cypress" target="_blank" rel="noopener">e2e-cypress</a></li>
     </ul>
     <h3>Essential Links</h3>
+    <button class="button is-primary" @click="apiPublic" >public</button>
+    <button class="button is-primary" @click="apiPrivate">private</button>
     <ul>
       <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
@@ -34,10 +36,21 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import axios from 'axios';
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+  private msg: string = 'None occured yet.';
+
+  private async apiPublic() {
+    // let res = await axios.get('http://localhost:8000/public')
+    // this.msg = res.data
+    this.msg = 'apiPublic called';
+  }
+
+  private async apiPrivate() {
+    this.msg = 'privateApi called';
+  }
 }
 </script>
 
